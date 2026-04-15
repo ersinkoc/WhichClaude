@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-15T00:00:00Z",
+  "providers": {
+    "zai": {
+      "id": "zai",
+      "name": "ZAI (Zhipu AI)",
+      "baseUrl": "https://api.z.ai/api/anthropic",
+      "signupUrl": "https://z.ai/pricing",
+      "defaultModel": "glm-5.1",
+      "models": [
+        {
+          "id": "glm-5.1",
+          "name": "GLM 5.1",
+          "capabilities": ["text", "deep-thinking"],
+          "isDefault": true
+        },
+        {
+          "id": "glm-5",
+          "name": "GLM 5",
+          "capabilities": ["text", "deep-thinking"]
+        },
+        {
+          "id": "glm-5-turbo",
+          "name": "GLM 5 Turbo",
+          "capabilities": ["text"]
+        }
+      ]
+    },
+    "kimi": {
+      "id": "kimi",
+      "name": "Kimi (Moonshot AI)",
+      "baseUrl": "https://api.kimi.com/coding/",
+      "signupUrl": "https://kimi.com/coding",
+      "defaultModel": "kimi-k2.6-code-preview",
+      "models": [
+        {
+          "id": "kimi-k2.6-code-preview",
+          "name": "Kimi K2.6 Code Preview",
+          "capabilities": ["text", "deep-thinking", "vision"],
+          "isDefault": true
+        },
+        {
+          "id": "kimi-k2.5",
+          "name": "Kimi K2.5",
+          "capabilities": ["text", "deep-thinking", "vision"]
+        }
+      ]
+    },
+    "minimax": {
+      "id": "minimax",
+      "name": "MiniMax",
+      "baseUrl": "https://api.minimax.io/anthropic",
+      "signupUrl": "https://www.minimax.io/platform",
+      "defaultModel": "MiniMax-M2.7",
+      "models": [
+        {
+          "id": "MiniMax-M2.7",
+          "name": "MiniMax M2.7",
+          "capabilities": ["text", "deep-thinking"],
+          "isDefault": true
+        },
+        {
+          "id": "MiniMax-M2.5",
+          "name": "MiniMax M2.5",
+          "capabilities": ["text", "deep-thinking"]
+        }
+      ]
+    },
+    "alibaba": {
+      "id": "alibaba",
+      "name": "Alibaba (DashScope Coding Plan)",
+      "baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
+      "signupUrl": "https://bailian.console.alibabacloud.com/",
+      "defaultModel": "qwen3.6-plus",
+      "models": [
+        {
+          "id": "qwen3.6-plus",
+          "name": "Qwen 3.6 Plus",
+          "brand": "Qwen",
+          "capabilities": ["text", "deep-thinking", "vision"],
+          "isDefault": true
+        },
+        {
+          "id": "qwen3.5-plus",
+          "name": "Qwen 3.5 Plus",
+          "brand": "Qwen",
+          "capabilities": ["text", "deep-thinking", "vision"]
+        },
+        {
+          "id": "qwen3-max-2026-01-23",
+          "name": "Qwen 3 Max",
+          "brand": "Qwen",
+          "capabilities": ["text", "deep-thinking"]
+        },
+        {
+          "id": "qwen3-coder-next",
+          "name": "Qwen 3 Coder Next",
+          "brand": "Qwen",
+          "capabilities": ["text"]
+        },
+        {
+          "id": "qwen3-coder-plus",
+          "name": "Qwen 3 Coder Plus",
+          "brand": "Qwen",
+          "capabilities": ["text"]
+        },
+        {
+          "id": "glm-5",
+          "name": "GLM 5",
+          "brand": "Zhipu",
+          "capabilities": ["text", "deep-thinking"]
+        },
+        {
+          "id": "glm-4.7",
+          "name": "GLM 4.7",
+          "brand": "Zhipu",
+          "capabilities": ["text", "deep-thinking"]
+        },
+        {
+          "id": "kimi-k2.5",
+          "name": "Kimi K2.5",
+          "brand": "Kimi",
+          "capabilities": ["text", "deep-thinking", "vision"]
+        },
+        {
+          "id": "MiniMax-M2.5",
+          "name": "MiniMax M2.5",
+          "brand": "MiniMax",
+          "capabilities": ["text", "deep-thinking"]
+        }
+      ]
+    }
+  }
+}

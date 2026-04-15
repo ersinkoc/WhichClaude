@@ -1,0 +1,56 @@
+{
+  "name": "whichcc",
+  "version": "1.0.0",
+  "description": "Switch Claude Code between alternative AI providers — ZAI, Kimi, MiniMax, Alibaba & custom",
+  "keywords": [
+    "claude-code",
+    "cli",
+    "ai",
+    "anthropic",
+    "zai",
+    "kimi",
+    "minimax",
+    "qwen",
+    "alibaba",
+    "npx"
+  ],
+  "author": "Ersin Koc",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ersinkoc/whichcc.git"
+  },
+  "homepage": "https://github.com/ersinkoc/whichcc#readme",
+  "bugs": {
+    "url": "https://github.com/ersinkoc/whichcc/issues"
+  },
+  "type": "module",
+  "bin": {
+    "whichcc": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "registry",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.2.0"
+  }
+}

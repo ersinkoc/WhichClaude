@@ -1,0 +1,14 @@
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+.env
+.env.local
+.idea/
+.vscode/
+*.tgz
+
+# Project planning files (local only)
+WHICHCC-PROJECT-PLAN.md
+WHICHCC-PROMPT.md
