@@ -1,29 +1,29 @@
-# WhichClaude
+# RunCodingPlan
 
 > **"Hangi Claude Code?"** — Switch Claude Code between alternative AI providers in one command.
 
 ```
-  ╦ ╦╦ ╦╦╔═╗╦ ╦╔═╗╦  ╔═╗╦ ╦╔╦╗╔═╗
-  ║║║╠═╣║║  ╠═╣║  ║  ╠═╣║ ║ ║║║╣
-  ╚╩╝╩ ╩╩╚═╝╩ ╩╚═╝╩═╝╩ ╩╚═╝═╩╝╚═╝   v1.0.0
+  ╦═╗╦ ╦╔╗╔╔═╗╔═╗╔╦╗╦╔╗╔╔═╗╔═╗╦  ╔═╗╔╗╔
+  ╠╦╝║ ║║║║║  ║ ║ ║║║║║║║ ╦╠═╝║  ╠═╣║║║
+  ╩╚═╚═╝╝╚╝╚═╝╚═╝═╩╝╩╝╚╝╚═╝╩  ╩═╝╩ ╩╝╚╝   v1.0.0
 ```
 
-`whichclaude` is a zero-dependency NPX CLI that manages per-session Claude Code settings for alternative AI providers. Pick a provider (ZAI / Kimi / MiniMax / Alibaba / custom), pick a model, and launch Claude Code with the right `ANTHROPIC_*` env vars — without ever touching your original `~/.claude/settings.json`.
+`runcodingplan` is a zero-dependency NPX CLI that manages per-session Claude Code settings for alternative AI providers. Pick a provider (ZAI / Kimi / MiniMax / Alibaba / custom), pick a model, and launch Claude Code with the right `ANTHROPIC_*` env vars — without ever touching your original `~/.claude/settings.json`.
 
 ## Quick Start
 
 ```bash
 # 1) Interactive menu
-npx whichclaude
+npx runcodingplan
 
 # 2) Save a provider API key
-npx whichclaude -p zai -a sk-xxx...
+npx runcodingplan -p zai -a sk-xxx...
 
 # 3) Launch with a specific model
-npx whichclaude -p zai -m glm-5.1
+npx runcodingplan -p zai -m glm-5.1
 
 # 4) Sync the model registry from GitHub
-npx whichclaude -u
+npx runcodingplan -u
 ```
 
 ## Built-in Providers
@@ -35,7 +35,7 @@ npx whichclaude -u
 | `minimax` | MiniMax | https://platform.minimax.io/subscribe/token-plan |
 | `alibaba` | Alibaba DashScope Coding Plan | https://www.alibabacloud.com/en/campaign/ai-scene-coding |
 
-Run `npx whichclaude -l` to see all models.
+Run `npx runcodingplan -l` to see all models.
 
 ## 🎁 Referral / Affiliate Links
 
@@ -46,14 +46,14 @@ Run `npx whichclaude -l` to see all models.
 | **ZAI — GLM Coding Plan** | [`bit.ly/4tJ4GLP`](https://bit.ly/4tJ4GLP) | Full Claude Code / Cline support, plans from $18/mo |
 | **MiniMax — Token Plan** | [`bit.ly/4tgh1rh`](https://bit.ly/4tgh1rh) | 10% off + API vouchers |
 
-These codes are **also embedded in the app** (shown with a `🎁` icon + `(affiliate)` tag whenever a provider has no API key). They're served from [`registry/models.json`](registry/models.json) so running `npx whichclaude -u` pulls the latest links — if a code ever expires, the repo is the source of truth.
+These codes are **also embedded in the app** (shown with a `🎁` icon + `(affiliate)` tag whenever a provider has no API key). They're served from [`registry/models.json`](registry/models.json) so running `npx runcodingplan -u` pulls the latest links — if a code ever expires, the repo is the source of truth.
 
 ## Usage
 
 ### Interactive
 
 ```
-npx whichclaude
+npx runcodingplan
 ```
 
 Shows a status box of every provider, lets you pick one, optionally prompts for an API key, then asks for a model, confirms flags, writes a session file and spawns `claude` with it.
@@ -61,9 +61,9 @@ Shows a status box of every provider, lets you pick one, optionally prompts for 
 ### Direct launch
 
 ```bash
-npx whichclaude -p kimi                              # default model
-npx whichclaude -p kimi -m kimi-k2.6-code-preview    # specific model
-npx whichclaude -p alibaba -m qwen3-coder-plus -sd   # with --dangerously-skip-permissions
+npx runcodingplan -p kimi                              # default model
+npx runcodingplan -p kimi -m kimi-k2.6-code-preview    # specific model
+npx runcodingplan -p alibaba -m qwen3-coder-plus -sd   # with --dangerously-skip-permissions
 ```
 
 ### Custom providers
@@ -72,23 +72,23 @@ Any Anthropic-compatible endpoint works:
 
 ```bash
 # Interactive
-npx whichclaude --add-custom
+npx runcodingplan --add-custom
 
 # One-shot
-npx whichclaude --add-custom \
+npx runcodingplan --add-custom \
   --name "DeepSeek" \
   --url "https://api.deepseek.com/anthropic" \
   -a sk-xxx \
   -m deepseek-r3
 
 # Launch it
-npx whichclaude -p deepseek
+npx runcodingplan -p deepseek
 ```
 
 Remove one:
 
 ```bash
-npx whichclaude --remove-custom deepseek
+npx runcodingplan --remove-custom deepseek
 ```
 
 ### User-added models
@@ -96,22 +96,22 @@ npx whichclaude --remove-custom deepseek
 Add a model to any built-in provider without waiting for a registry update:
 
 ```bash
-npx whichclaude -p zai --add-model glm-6 --set-default
-npx whichclaude -p zai --remove-model glm-6
+npx runcodingplan -p zai --add-model glm-6 --set-default
+npx runcodingplan -p zai --remove-model glm-6
 ```
 
-User-added models show with `(*)`. When you run `npx whichclaude -u` and the registry now contains that model, it is auto-promoted out of `userModels`.
+User-added models show with `(*)`. When you run `npx runcodingplan -u` and the registry now contains that model, it is auto-promoted out of `userModels`.
 
 ### Everything else
 
 ```bash
-npx whichclaude --list            # list providers + models
-npx whichclaude --list-custom     # only custom
-npx whichclaude --status          # config, keys, sessions
-npx whichclaude --clean           # remove session files >24h old
-npx whichclaude -p zai --remove-key
-npx whichclaude --no-launch -p zai    # write session file only
-npx whichclaude --dry-run -p zai      # print session JSON to stdout
+npx runcodingplan --list            # list providers + models
+npx runcodingplan --list-custom     # only custom
+npx runcodingplan --status          # config, keys, sessions
+npx runcodingplan --clean           # remove session files >24h old
+npx runcodingplan -p zai --remove-key
+npx runcodingplan --no-launch -p zai    # write session file only
+npx runcodingplan --dry-run -p zai      # print session JSON to stdout
 ```
 
 ### CLI flags
@@ -143,11 +143,11 @@ npx whichclaude --dry-run -p zai      # print session JSON to stdout
 
 ## How it works
 
-`whichclaude` **never** modifies `~/.claude/settings.json`. For every launch it:
+`runcodingplan` **never** modifies `~/.claude/settings.json`. For every launch it:
 
 1. Resolves the provider (built-in registry + user-added models, or custom).
-2. Decrypts the API key from `~/.claude/.whichclaude/keys.json`.
-3. Writes a one-off `~/.claude/whichclaude-<provider>-<timestamp>.json` with the right `ANTHROPIC_*` env vars and (optionally) a `statusLine`.
+2. Decrypts the API key from `~/.claude/.runcodingplan/keys.json`.
+3. Writes a one-off `~/.claude/runcodingplan-<provider>-<timestamp>.json` with the right `ANTHROPIC_*` env vars and (optionally) a `statusLine`.
 4. Spawns `claude --settings <that-file>` with your stdio attached.
 5. Old session files (>24h) are cleaned up next time you run.
 
@@ -156,8 +156,8 @@ npx whichclaude --dry-run -p zai      # print session JSON to stdout
 ```
 ~/.claude/
 ├── settings.json                    # your original settings — UNTOUCHED
-├── whichclaude-zai-<ts>.json            # per-launch session file
-└── .whichclaude/
+├── runcodingplan-zai-<ts>.json            # per-launch session file
+└── .runcodingplan/
     ├── config.json                  # provider defaults, user models, custom providers
     ├── keys.json                    # AES-256-GCM encrypted API keys
     └── registry.json                # cached model registry from GitHub
@@ -183,7 +183,7 @@ node dist/index.js --help
 
 ## 🔗 Also by @ersinkoc
 
-If `whichclaude` saved you time, you might like these too:
+If `runcodingplan` saved you time, you might like these too:
 
 ### 🏗️ [project-architect](https://github.com/ersinkoc/project-architect)
 > **An Agent Skill for documentation-first project planning.**

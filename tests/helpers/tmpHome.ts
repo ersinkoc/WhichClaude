@@ -10,8 +10,8 @@ export interface TmpHome {
 }
 
 export function makeTmpHome(): TmpHome {
-  const root = mkdtempSync(join(tmpdir(), 'whichclaude-test-'));
-  process.env['WHICHCLAUDE_HOME_DIR'] = root;
+  const root = mkdtempSync(join(tmpdir(), 'runcodingplan-test-'));
+  process.env['RUNCP_HOME_DIR'] = root;
   vi.resetModules();
   return {
     root,
@@ -22,7 +22,7 @@ export function makeTmpHome(): TmpHome {
       } catch {
         // ignore cleanup errors
       }
-      delete process.env['WHICHCLAUDE_HOME_DIR'];
+      delete process.env['RUNCP_HOME_DIR'];
       vi.resetModules();
     },
   };

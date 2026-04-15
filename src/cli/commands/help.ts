@@ -3,11 +3,11 @@ import { c } from '../ui.js';
 
 export function printHelp(): void {
   const help = `
-  ${c.bold('whichclaude')} ${c.gray(`v${VERSION}`)} — Switch Claude Code between alternative AI providers
+  ${c.bold('runcodingplan')} ${c.gray(`v${VERSION}`)} — Switch Claude Code between alternative AI providers
 
   ${c.bold('USAGE')}
-    npx whichclaude                           ${c.dim('# interactive menu')}
-    npx whichclaude -p <provider> [flags]     ${c.dim('# launch directly')}
+    npx runcodingplan                           ${c.dim('# interactive menu')}
+    npx runcodingplan -p <provider> [flags]     ${c.dim('# launch directly')}
 
   ${c.bold('PROVIDERS')} (built-in)
     zai       ZAI (Zhipu AI)       https://z.ai/subscribe
@@ -43,7 +43,7 @@ export function printHelp(): void {
   ${c.bold('SESSION TEMPLATE')}
     --show-template            Print session template (path + current content)
     --reset-template           Overwrite template with built-in default
-    ${c.dim('Customize: edit ~/.claude/.whichclaude/template.json')}
+    ${c.dim('Customize: edit ~/.claude/.runcodingplan/template.json')}
     ${c.dim('Placeholders: [[PROVIDER_URL]] [[APIKEY]] [[MODEL]] [[STATUSLINE_COMMAND]]')}
 
   ${c.bold('OTHER')}
@@ -54,23 +54,23 @@ export function printHelp(): void {
 
   ${c.bold('EXAMPLES')}
     ${c.dim('# Set key then launch')}
-    npx whichclaude -p zai -a sk-xxx
-    npx whichclaude -p zai
+    npx runcodingplan -p zai -a sk-xxx
+    npx runcodingplan -p zai
 
     ${c.dim('# Specific model')}
-    npx whichclaude -p alibaba -m qwen3-coder-plus -sd
+    npx runcodingplan -p alibaba -m qwen3-coder-plus -sd
 
     ${c.dim('# Add custom provider via flags')}
-    npx whichclaude --add-custom --name DeepSeek --url https://api.deepseek.com/anthropic -a sk-xx -m deepseek-r3
+    npx runcodingplan --add-custom --name DeepSeek --url https://api.deepseek.com/anthropic -a sk-xx -m deepseek-r3
 
     ${c.dim('# User-added model on built-in provider')}
-    npx whichclaude -p zai --add-model glm-6 --set-default
+    npx runcodingplan -p zai --add-model glm-6 --set-default
 
     ${c.dim('# Sync with GitHub registry')}
-    npx whichclaude -u
+    npx runcodingplan -u
 
   ${c.bold('MORE')}
-    https://github.com/ersinkoc/whichclaude
+    https://github.com/ersinkoc/runcodingplan
 
   ${c.bold('ALSO BY @ersinkoc')}
     ${c.cyan('project-architect')}  Documentation-first project planning agent skill

@@ -92,7 +92,7 @@ describe('launchClaudeCode spawn strategy', () => {
       const actual = await vi.importActual<typeof import('node:child_process')>('node:child_process');
       return { ...actual, spawn: spawnSpy };
     });
-    process.env['WHICHCLAUDE_CLAUDE_BIN'] = binary;
+    process.env['RUNCP_CLAUDE_BIN'] = binary;
     const { launchClaudeCode } = await import('../src/core/launcher.js');
     const exitSpy = vi.spyOn(process, 'exit').mockImplementation(((code?: number) => {
       throw new Error(`EXIT_${code ?? 0}`);
@@ -130,24 +130,24 @@ describe('resolveClaudeBinary', () => {
   beforeEach(() => {
     vi.resetModules();
     process.env = { ...origEnv };
-    delete process.env['WHICHCLAUDE_CLAUDE_BIN'];
+    delete process.env['RUNCP_CLAUDE_BIN'];
   });
   afterEach(() => {
     vi.restoreAllMocks();
     process.env = origEnv;
   });
 
-  it('returns WHICHCLAUDE_CLAUDE_BIN override when file exists', async () => {
+  it('returns RUNCP_CLAUDE_BIN override when file exists', async () => {
     vi.doMock('node:fs', async () => {
       const actual = await vi.importActual<typeof import('node:fs')>('node:fs');
       return { ...actual, existsSync: (p: string) => p === '/custom/claude' };
     });
-    process.env['WHICHCLAUDE_CLAUDE_BIN'] = '/custom/claude';
+    process.env['RUNCP_CLAUDE_BIN'] = '/custom/claude';
     const { resolveClaudeBinary } = await import('../src/core/launcher.js');
     expect(resolveClaudeBinary()).toBe('/custom/claude');
   });
 
-  it('ignores WHICHCLAUDE_CLAUDE_BIN when file does not exist', async () => {
+  it('ignores RUNCP_CLAUDE_BIN when file does not exist', async () => {
     vi.doMock('node:fs', async () => {
       const actual = await vi.importActual<typeof import('node:fs')>('node:fs');
       return { ...actual, existsSync: () => false };
@@ -156,7 +156,7 @@ describe('resolveClaudeBinary', () => {
       const actual = await vi.importActual<typeof import('node:child_process')>('node:child_process');
       return { ...actual, execFileSync: () => { throw new Error('not found'); } };
     });
-    process.env['WHICHCLAUDE_CLAUDE_BIN'] = '/nope';
+    process.env['RUNCP_CLAUDE_BIN'] = '/nope';
     const { resolveClaudeBinary } = await import('../src/core/launcher.js');
     const result = resolveClaudeBinary();
     expect(['claude', 'claude.exe', 'claude.cmd']).toContain(result);

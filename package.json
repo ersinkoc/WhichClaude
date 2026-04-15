@@ -1,5 +1,5 @@
 {
-  "name": "whichclaude",
+  "name": "runcodingplan",
   "version": "1.0.0",
   "description": "Switch Claude Code between alternative AI providers — ZAI, Kimi, MiniMax, Alibaba & custom",
   "keywords": [
@@ -18,15 +18,15 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ersinkoc/whichclaude.git"
+    "url": "https://github.com/ersinkoc/runcodingplan.git"
   },
-  "homepage": "https://github.com/ersinkoc/whichclaude#readme",
+  "homepage": "https://github.com/ersinkoc/runcodingplan#readme",
   "bugs": {
-    "url": "https://github.com/ersinkoc/whichclaude/issues"
+    "url": "https://github.com/ersinkoc/runcodingplan/issues"
   },
   "type": "module",
   "bin": {
-    "whichclaude": "./dist/index.js"
+    "runcodingplan": "./dist/index.js"
   },
   "main": "./dist/index.js",
   "files": [
